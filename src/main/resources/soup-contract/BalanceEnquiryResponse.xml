@@ -1,0 +1,19 @@
+<GetAccountBalanceResponse>
+	<GetAccountBalanceResult>
+		<CorporateCode>
+			CorpXXX
+		</CorporateCode>
+		<AccountNumber>
+			00000XXXXX
+		</AccountNumber>
+		<Balance>
+			1051.42
+		</Balance>
+		<StatusCode>
+			00
+		</StatusCode>
+		<StatusDescription>
+			SUCCESSFUL
+		</StatusDescription>
+	</GetAccountBalanceResult>
+</GetAccountBalanceResponse>

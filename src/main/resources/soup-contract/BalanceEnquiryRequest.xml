@@ -1,0 +1,10 @@
+<GetAccountBalance>
+	<request>
+		<CorporateCode>
+			CorpXXXXX
+		</CorporateCode>
+		<AccountNumber>
+			00000XXXXX
+		</AccountNumber>
+	</request>
+</GetAccountBalance>

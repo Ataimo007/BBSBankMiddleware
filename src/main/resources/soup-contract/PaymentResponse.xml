@@ -1,0 +1,19 @@
+<AddPaymentLocalResponse>
+	<AddPaymentLocalResult>
+		<CorporateCode>
+			CorpXXXX
+		</CorporateCode>
+		<BatchReference>
+			BATCHTest1100
+		</BatchReference>
+		<AccountNo>
+			00000XXXXX
+		</AccountNo>
+		<StatusCode>
+			00
+		</StatusCode>
+		<StatusDescription>
+			Successful
+		</StatusDescription>
+	</AddPaymentLocalResult>
+</AddPaymentLocalResponse>

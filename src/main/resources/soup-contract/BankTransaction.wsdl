@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BankTransaction" targetNamespace="http://qucoon.com/BankTransaction.wsdl"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsd1="http://qucoon.com/BankTransaction.wsd"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://qucoon.com/BankTransaction.wsdl"
+>
+    <wsdl:types>
+        <xs:schema targetNamespace="http://qucoon.com/BankTransaction.wsd"
+                attributeFormDefault="unqualified" elementFormDefault="qualified"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="GetAccountBalance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="request">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="CorporateCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="AccountNumber" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetAccountBalanceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="GetAccountBalanceResult">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="CorporateCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="AccountNumber" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Balance" type="xs:decimal"/>
+                                    <xs:element minOccurs="0" name="StatusCode" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="StatusDescription" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddPaymentLocal">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="dto">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="PaymentTransactions">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" name="PaymentTransactionLocal">
+                                                    <xs:complexType>
+                                                        <xs:sequence>
+                                                            <xs:element minOccurs="0" name="DestinationBankCode"
+                                                                        type="xs:unsignedByte"/>
+                                                            <xs:element minOccurs="0" name="Beneficiary"
+                                                                        type="xs:string"/>
+                                                            <xs:element minOccurs="0" name="AccountNumber"
+                                                                        type="xs:string"/>
+                                                            <xs:element minOccurs="0" name="Amount"
+                                                                        type="xs:unsignedShort"/>
+                                                            <xs:element minOccurs="0" name="Naration" type="xs:string"/>
+                                                            <xs:element minOccurs="0" name="ValueDate" type="xs:date"/>
+                                                            <xs:element minOccurs="0" name="TransactionReference"
+                                                                        type="xs:string"/>
+                                                            <xs:element minOccurs="0" name="BeneficiaryEmail"
+                                                                        type="xs:string"/>
+                                                            <xs:element minOccurs="0" name="BeneficiaryPhone"
+                                                                        type="xs:string"/>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="CorporateCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Currency" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SingleDebitNaration" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="EnableSingleDebit" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="Date" type="xs:date"/>
+                                    <xs:element minOccurs="0" name="TotalTransactions" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="SourceAccount" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Amount" type="xs:unsignedShort"/>
+                                    <xs:element minOccurs="0" name="PaymentMethodId" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="PaymentTypeId" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="BatchReference" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Username" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Password" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="AddPaymentLocalResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="AddPaymentLocalResult">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="CorporateCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="BatchReference" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="AccountNo" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="StatusCode" type="xs:unsignedByte"/>
+                                    <xs:element minOccurs="0" name="StatusDescription" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+
+    <wsdl:message name="AddPaymentLocal">
+        <wsdl:part name="inputParameters" element="xsd1:AddPaymentLocal"/>
+    </wsdl:message>
+    <wsdl:message name="AddPaymentLocalResponse">
+        <wsdl:part name="inputParameters" element="xsd1:AddPaymentLocalResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetAccountBalance">
+        <wsdl:part name="inputParameters" element="xsd1:GetAccountBalance"/>
+    </wsdl:message>
+    <wsdl:message name="GetAccountBalanceResponse">
+        <wsdl:part name="inputParameters" element="xsd1:GetAccountBalanceResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="AddPaymentLocalType">
+        <wsdl:operation name="AddPaymentLocal">
+            <wsdl:input message="tns:AddPaymentLocal"/>
+            <wsdl:output message="tns:AddPaymentLocalResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:portType name="GetAccountBalanceType">
+        <wsdl:operation name="GetAccountBalance">
+            <wsdl:input message="tns:GetAccountBalance"/>
+            <wsdl:output message="tns:GetAccountBalanceResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="AddPaymentLocalBinding" type="tns:AddPaymentLocalType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="AddPaymentLocal">
+            <soap:operation soapAction="http://qucoon.com/AddPaymentLocal"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:binding name="GetAccountBalanceBinding" type="tns:GetAccountBalanceType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetAccountBalance">
+            <soap:operation soapAction="http://qucoon.com/GetAccountBalance"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="BankTransaction">
+        <wsdl:documentation>Bank Transaction Soap API</wsdl:documentation>
+        <wsdl:port name="AddPaymentLocal" binding="tns:AddPaymentLocalBinding">
+            <soap:address location="http://qucoon.com/AddPaymentLocal"/>
+        </wsdl:port>
+        <wsdl:port name="GetAccountBalance" binding="tns:GetAccountBalanceBinding">
+            <soap:address location="http://qucoon.com/GetAccountBalance"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
